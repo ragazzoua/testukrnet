@@ -1,5 +1,6 @@
 package testframework.tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.util.Set;
@@ -12,9 +13,10 @@ public class HomeTest extends BaseTest {
 
     @Test
     public void invalidLogin() {
-        app.home.setLoginField("test");
+        Assert.assertEquals(app.home.getUrl(), "https://www.ukr.net/");
+        /*app.home.setLoginField("test");
         app.home.setPasswordField("passtest");
-        app.home.clickLoginButton();
+        app.home.clickLoginButton();*/
     }
 
 }

@@ -9,17 +9,20 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends BasePage {
 
-    @FindBy(id = "id-input-login")
+    @FindBy(xpath = "/html/body/form/div[2]/label")
     private WebElement loginField;
 
     @FindBy(id = "id-input-password")
     private WebElement passwordField;
 
-    @FindBy(className = "form__submit")
+    @FindBy(xpath = "/html/body/form/div[6]/button")
     private WebElement loginButton;
 
     public void setLoginField(String login) {
-        loginField.sendKeys(login);
+        if (loginField.isDisplayed()) {
+            loginField.sendKeys(login);
+        }
+
     }
 
     public void setPasswordField(String password) {
@@ -28,5 +31,9 @@ public class HomePage extends BasePage {
 
     public void clickLoginButton() {
         loginButton.click();
+    }
+
+    public String getUrl() {
+        return driver.getCurrentUrl();
     }
 }
