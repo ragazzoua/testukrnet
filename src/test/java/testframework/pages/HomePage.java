@@ -19,10 +19,7 @@ public class HomePage extends BasePage {
     private WebElement loginButton;
 
     public void setLoginField(String login) {
-        if (loginField.isDisplayed()) {
-            loginField.sendKeys(login);
-        }
-
+        loginField.sendKeys(login);
     }
 
     public void setPasswordField(String password) {
